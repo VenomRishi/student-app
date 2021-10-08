@@ -17,6 +17,22 @@ public class StudentService {
     return studentRepository.findAll();
   }
 
+  public StudentEntity getStudentById(int id) {
+    Optional<StudentEntity> studentEntity = studentRepository.findById(id);
+    if(studentEntity.isPresent()) {
+      return studentEntity.get();
+    }
+    return null;
+  }
+
+  public StudentEntity getStudentByName(String name) {
+    Optional<StudentEntity> studentEntity = studentRepository.findByFirstName(name);
+    if(studentEntity.isPresent()) {
+      return studentEntity.get();
+    }
+    return null;
+  }
+
   public StudentEntity addStudent(StudentEntity studentEntity) {
     return studentRepository.save(studentEntity);
   }

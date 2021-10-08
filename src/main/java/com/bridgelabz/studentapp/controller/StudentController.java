@@ -28,6 +28,16 @@ public class StudentController {
     return studentService.students();
   }
 
+  @GetMapping(value = "/get-student-by-id")
+  public StudentEntity getStudentById(@RequestParam int id) {
+    return studentService.getStudentById(id);
+  }
+
+  @GetMapping(value = "/get-student-by-name")
+  public StudentEntity getStudentByName(@RequestParam String name) {
+    return studentService.getStudentByName(name);
+  }
+
   @PostMapping(value = "/student")
   public StudentEntity addStudent(@RequestBody StudentEntity studentEntity) {
     return studentService.addStudent(studentEntity);
