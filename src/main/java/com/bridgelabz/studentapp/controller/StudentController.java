@@ -1,11 +1,13 @@
 package com.bridgelabz.studentapp.controller;
 
+import com.bridgelabz.studentapp.dto.StudentDTO;
 import com.bridgelabz.studentapp.entity.StudentEntity;
 import com.bridgelabz.studentapp.service.StudentService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -34,18 +36,20 @@ public class StudentController {
   }
 
   @GetMapping(value = "/get-student-by-name")
-  public StudentEntity getStudentByName(@RequestParam String name) {
-    return studentService.getStudentByName(name);
+  public StudentEntity getStudentByName(@RequestParam String firstName) {
+    return studentService.getStudentByName(firstName);
   }
 
   @PostMapping(value = "/student")
-  public StudentEntity addStudent(@RequestBody StudentEntity studentEntity) {
-    return studentService.addStudent(studentEntity);
+  public StudentEntity addStudent(@RequestBody StudentDTO studentDTO) {
+    return studentService.addStudent(studentDTO);
   }
 
   @PutMapping(value = "/student")
-  public StudentEntity updateStudent(@RequestBody StudentEntity studentEntity) {
-    return studentService.updateStudent(studentEntity);
+  public StudentEntity updateStudent(
+      @PathVariable int id,
+      @RequestBody StudentDTO studentDTO) {
+    return studentService.updateStudent(id, studentDTO);
   }
 
   @DeleteMapping(value = "/student")
