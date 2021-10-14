@@ -1,11 +1,11 @@
 package com.bridgelabz.studentapp.dto;
 
-import lombok.Getter;
+import lombok.Data;
 
-@Getter
-public class StudentDTO {
+@Data
+public class StudentResponseDto {
 
+  private int id;
   private String firstName;
   private String lastName;
-  private int rollNo;
 }

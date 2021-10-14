@@ -1,6 +1,7 @@
 package com.bridgelabz.studentapp.controller;
 
 import com.bridgelabz.studentapp.dto.StudentDTO;
+import com.bridgelabz.studentapp.dto.StudentResponseDto;
 import com.bridgelabz.studentapp.entity.StudentEntity;
 import com.bridgelabz.studentapp.service.StudentService;
 import java.util.List;
@@ -26,7 +27,7 @@ public class StudentController {
   private StudentService studentService;
 
   @GetMapping(value = "/students")
-  public List<StudentEntity> students() {
+  public List<StudentResponseDto> students() {
     return studentService.students();
   }
 
